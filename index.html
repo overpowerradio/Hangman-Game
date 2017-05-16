@@ -10,36 +10,59 @@
 <body>
 
 <!--Title of the Hangman Game -->
+<header>
 <h1>Hangin' at Motown</h1>
+<img id="artistPic" src="">
+<!-- There will be no image at the start of the game. Once the user wins or loses the first game, the image of the artist in the game results will appear.-->
 
-<!-- Create a jpg of the traditional Motown Label to be used as a background img.
-create Divs for where the artist name goes on the label, when a user clicks for a Hint or wins the puzzle, reveal the Artist Name.
+<div id="recordSleeve">
+	<p id="theArtist">Who's the artist? Need a hint?</p>
+	<p id="gameBoard"></p>
+	<button id="hint">Need a hint? Click Here!</button>
+</div>
 
-**** the background image may change with the puzzle, considering Motown was also the Gordy, and Tamla labels.
+<!-- The record sleeve <div> will have a background image of the particular Motown/Motown subsidiary label of the answer to the puzzle. Within the circular label #theArtist should be positioned at the top/center of the circle, and the #gameBoard should be positioned in the bottom/center of the of the label - just as it would appear on a vinyl recording. Outside of the circular label will be all black.-->
 
-***** start the game, playing a clip of "You Keep Me Hanging On" by The Supremes -->
-
-
-
-<p>PRESS ANY KEY TO GET STARTED</p>
-
-<div id="TheArtist"><p>Game Includes Over 25 Artists, and 40 Years of Music!</p>
-
-<div id="gameBoard"><p>Press Any Key To Play</p></div>
-
-<button id="hint">Need a hint? Click Here!</button>
 <!--When user clicks on the button, the artist's name will appear at the top of the label -->
 
-<p># of Guesses Remaining: </p> <p id="guessed">Letters Already Guessed: <font id="wrong1">_</font>
+<!-- The background image may change with the puzzle. -->
+
+<!-- The game will begin with just a snippet of "You Keep Me Hanging On", by Diana Ross and the Supremes-->
 
 
-<!-- Create 7 jpg(s) in bitmap for the hangman. And change the pics to the next jpg, whenever the user guesses wrong. hangman-1.jpg should be the head, hangman-2.jpg should be the body, hangman-3.jpg should be the arms, and so on. hangman-6.jpg will be the last displayed if the user loses the game. -->
+<div class="scoreboard">
+	<p>Wins: <font id="wins"></font></p>
+	<p>Loses: <font id="losses"></font></p>
+	<p># of Guesses Remaining: <font id="remaining"></font></p>
+	<p>Letters Already Guessed: <font id="wrong"></font></p>
+</div>
 
-<img id="hangman" src="hangman.jpg">
+<!-- The #scoreboard could be positioned within the #recordSleeve to look like a "buy me" sticker on an album in a record store. I'll use that exact "sticker" background, if I can google one. -->
 
-<!--Wins Represents The Number of Times a User Guessed the WORD Correctly -->
-<p>Wins: <span id=wins>0</span>
-<p>Losses: <span id=losses>0</span>
+<section id="hangmanDisplay">
+<img id="hangman"src="assets/images/hangman.jpg">
+<div class="previousResults">
+	<img id="previousPic" src="">
+	<p id="previousArtist"></p>
+	<p id="previousSongTitle"></p>
+</div>
+
+<!-- At the start of a new game the "hangman.jpg" is just the platform/no body parts -->
+
+<!-- When the user guesses wrong it will
+	(1) subtrack 1 from the # of guesses remaining
+	(2) It will update the hangman image accordingly
+		# of Guesses Remaining: 5 = hangman-1.jpg = head
+		# of Guesses Remaining: 4 = hangman-2.jpg = body
+		# of Guesses Remaining: 3 = hangman-3.jpg = right/arm
+		# of Guesses Remaining: 2 = hangman-4.jpg = left/arm
+		# of Guesses Remaining: 1 = hangman-5.jpg = right/leg
+		# of Guesses Remaining: 0 = hangman-6.jpg = left/leg (full body) -->
+
+<!-- java script should add (+) the each letter guessed wrong to the #wrong ID, similar to how the Rock Paper Scissors video updated the wins/losses/ties count with one event updating the <p> tag as the score progressed -->
+
+<!-- If the user repeats a wrong letter, nothing happens.-->
+
 
 
 <script src="assets/javascript/game.js"></script>

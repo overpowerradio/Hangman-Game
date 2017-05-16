@@ -1,9 +1,43 @@
-// When the user enters a key, it starts the game.
+/*
+This will be a hangman game, called “Hangin' at Motown,” themed 
+around Motown artists and songs from past to present.
+
+Once the user starts the game. The <div> that the game is in assumes the background
+image of the Motown vinyl record label that was used when that song was released.
+
+There will be a <div> positioned at the top of the label where the artist's name is
+usually printed. However, at the start of the game, it will read, 
+"Need a hint? Click here!"
+
+The artist's name will only be revealed if (1) the user clicks for a hint, or 
+(2) the user wins the game.
+
+The puzzle will be concealed with underscores (_) except for the characters 
+that are punctuations (likely and apostrophe) or a space.
+
+The user will get 6 guesses to win. This is the sum of the hangman being drawn
+#1 head, #2 body, #3 rightArm, #4 leftArm, #5 rightLeg, #6 leftLeg
+
+If the user wins, an alert will appear that says "You Win!" 
+
+If the user losses, an alert will appear that says " You lose!"
+
+Wins and losses will counted and visible to the user on the web page.
+
+Win or lose: At the end of the game the artist name will be revealed, a picture
+of the artist will appear, and the song title of the puzzle will play.
+
+Win or lose: When a user clicks "OK" or "Cancel" on the (boolean) alert, 
+(1) A new puzzle will be displayed 
+(2) The previous game's solution (artist name and song, with an image of the artist)
+	will be stored in a <div> as a side bar and remain visible to the user 
+	as the song of the previous solution continues to play.
+*/
 
 var alphabets = ["A", "B", "C", "D", "E", "F", "G", "H", "I", 
 "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-var dashedOut = String.fromCharCode(puzzleSelection).toUnderscores;
+var hidePuzzle = String.fromCharCode(puzzleSelection).toUnderscores;
 	for (var i = 0; i < puzzleSelection.length; i++)
 
 var userTypes = String.fromCharCode(event.keyCode).toUpperCase();
@@ -44,10 +78,9 @@ var puzzle = {
  	artist10songs: "WAR",
  	newGame: function() {
 		var puzzleSelection = songList[Math.floor(Math.random()*songList.length)];
- 		var dashedOut = puzzleSelection.replaceall(alphabets,"_")
- 		document.querySelector('#gameBoard').innerHTML = dashedOut
-		document.querySelector('#TheArtist').innerHTML = "?? NEED A HINT ??"
-
+ 		var hidePuzzle = puzzleSelection.replaceall(alphabets,"_")
+ 		document.querySelector('#gameBoard').innerHTML = hidePuzzle
+		document.querySelector('#TheArtist').innerHTML = "?? NEED A HINT ? CLICK HERE!"
 	},
 	countwins: function() {
 		wins = wins + 1;
