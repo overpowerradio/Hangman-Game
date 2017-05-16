@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<title>Hang with Motown</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body>
+
+<!--Title of the Hangman Game -->
+<h1>Hangin' at Motown</h1>
+
+<!-- Create a jpg of the traditional Motown Label to be used as a background img.
+create Divs for where the artist name goes on the label, when a user clicks for a Hint or wins the puzzle, reveal the Artist Name.
+
+**** the background image may change with the puzzle, considering Motown was also the Gordy, and Tamla labels.
+
+***** start the game, playing a clip of "You Keep Me Hanging On" by The Supremes -->
+
+
+
+<p>PRESS ANY KEY TO GET STARTED</p>
+
+<div id="TheArtist"><p>Game Includes Over 25 Artists, and 40 Years of Music!</p>
+
+<div id="gameBoard"><p>Press Any Key To Play</p></div>
+
+<button id="hint">Need a hint? Click Here!</button>
+<!--When user clicks on the button, the artist's name will appear at the top of the label -->
+
+<p># of Guesses Remaining: </p> <p id="guessed">Letters Already Guessed: <font id="wrong1">_</font>
+
+
+<!-- Create 7 jpg(s) in bitmap for the hangman. And change the pics to the next jpg, whenever the user guesses wrong. hangman-1.jpg should be the head, hangman-2.jpg should be the body, hangman-3.jpg should be the arms, and so on. hangman-6.jpg will be the last displayed if the user loses the game. -->
+
+<img id="hangman" src="hangman.jpg">
+
+<!--Wins Represents The Number of Times a User Guessed the WORD Correctly -->
+<p>Wins: <span id=wins>0</span>
+<p>Losses: <span id=losses>0</span>
+
+
+<script src="assets/javascript/game.js"></script>
+</body>
+</html>
